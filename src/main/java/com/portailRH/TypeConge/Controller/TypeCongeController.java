@@ -12,7 +12,7 @@ import com.portailRH.TypeConge.Service.TypeCongeService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/typeconge")
 public class TypeCongeController {
     @Autowired
     private TypeCongeService TypeCongeService;
