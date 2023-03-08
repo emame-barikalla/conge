@@ -2,29 +2,43 @@ package com.portailRH.TypeConge.Service;
 
 import com.portailRH.TypeConge.Entity.TypeConge;
 import com.portailRH.TypeConge.Repository.TypeCongeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class TypeCongeService {
-    @Autowired
-    private TypeCongeRepository TypeCongeRepository;
+public class TypeCongeService implements ITypeService {
 
-    public List<TypeConge> findAllTypeConge() {
-        return TypeCongeRepository.findAll();
+    private final TypeCongeRepository repos;
+
+    public TypeCongeService(TypeCongeRepository repos) {
+        this.repos = repos;
     }
 
-    public TypeConge findTypeCongeById(Long id) {
-        return TypeCongeRepository.findById(id).orElse(null);
+
+    @Override
+    public List<TypeConge> findAllTypes() {
+        return repos.findAll();
     }
 
-    public TypeConge saveTypeConge(TypeConge TypeConge) {
-        return TypeCongeRepository.save(TypeConge);
+    @Override
+    public Optional<TypeConge> findById(Long id) {
+        return repos.findById(id);
     }
 
-    public void deleteTypeCongeById(Long id) {
-        TypeCongeRepository.deleteById(id);
+    @Override
+    public TypeConge savetype(TypeConge typeConge) {
+        return repos.save(typeConge);
+    }
+
+    @Override
+    public TypeConge updatetype(TypeConge typeConge) {
+        return repos.save(typeConge);
+    }
+
+    @Override
+    public void deletetype(Long id) {
+        repos.deleteById(id);
     }
 }

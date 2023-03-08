@@ -41,6 +41,7 @@ public class DemandeCongeController {
     public DemandeConge updatedemande(@RequestBody DemandeConge demandeConge) {
         // TODO Auto-generated method stub
         return demandeService.updateDemande(demandeConge);
+
     }
     @DeleteMapping("/{id}")
     public void deletedemande(@PathVariable("id")Long id) {
