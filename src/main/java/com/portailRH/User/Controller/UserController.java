@@ -1,35 +1,38 @@
 package com.portailRH.User.Controller;
 
 import com.portailRH.User.Entity.User;
-import com.portailRH.User.Service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.portailRH.User.Service.IUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+@Api("API pour les opérations CRUD sur les utilisateurs.")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-    @Autowired
-    private UserService userService;
-
+    private final IUserService iuserService;
+    public UserController(IUserService iuserService) {
+        this.iuserService = iuserService;
+    }
+    @ApiOperation(value = "Récupère la liste des utilisateurs ")
     @GetMapping
     public List<User> findAllUsers() {
-        return userService.findAllUsers();
+        return iuserService.findAllusers();
     }
-
-   /* @GetMapping("/{id}")
-    public User findUserById(@PathVariable Long id) {
-        return userService.findUserById(id);
-    }*/
-
-    @PostMapping
+    @ApiOperation(value = "ajouter un utilisateur ")
+    @PostMapping("/add")
     public User saveUser(@RequestBody User user) {
-        return userService.saveUser(user);
+        return iuserService.saveUser(user);
     }
-
-   /* @DeleteMapping("/{id}")
-    public void deleteUserById(@PathVariable Long id) {
-        userService.deleteUserById(id);
-    }*/
+    @ApiOperation(value = "modifier un utilisateur ")
+    @PutMapping("/update")
+    public User updateUser(@RequestBody User user) {
+        return iuserService.updateUser(user);
+    }
+    @ApiOperation(value = "supprimer un utilisateur ")
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(String login) {
+        iuserService.deleteUser(login);
+    }
 }

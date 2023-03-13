@@ -1,54 +1,48 @@
 package com.portailRH.demandeConge.Controller;
 
 import com.portailRH.demandeConge.Entity.DemandeConge;
-import com.portailRH.demandeConge.Service.DemandeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.portailRH.demandeConge.Service.IDemandeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
-
+@Api("API pour les opérations CRUD sur les demandes de conge.")
 @RestController
-@RequestMapping("/api/DemandeConge")
+@RequestMapping("/api/demandeconge")
 public class DemandeCongeController {
-
-
-    @Autowired
-    private DemandeService demandeService;
-
-    public DemandeCongeController(DemandeService demandeService) {
-        this.demandeService = demandeService;
+    private IDemandeService IDemandeService;
+    public DemandeCongeController(IDemandeService IDemandeService) {
+        this.IDemandeService = IDemandeService;
     }
-
+    @ApiOperation(value = "Récupère la liste des demandes ")
     @GetMapping
     public List<DemandeConge> findAllDemandes() {
-        return demandeService.findAllDemandes();
+        return IDemandeService.findAllDemandes();
     }
+    @ApiOperation(value = "Récupère une demande grâce à son ID ")
     @GetMapping("/{id}")
     public Optional<DemandeConge> findById(@PathVariable("id") Long id){
-        return 	demandeService.findById( id);
+        return 	IDemandeService.findById(id);
     }
-
-    @PostMapping
+    @ApiOperation(value = "ajouter une demande ")
+    @PostMapping("/add")
     public DemandeConge savedemande(@RequestBody DemandeConge demandeConge) {
-        // TODO Auto-generated method stub
-        return demandeService.saveDemande(demandeConge);
+        return IDemandeService.saveDemande(demandeConge);
     }
-    @PutMapping
+    @ApiOperation(value = "modifier une demande ")
+    @PutMapping("/update")
     public DemandeConge updatedemande(@RequestBody DemandeConge demandeConge) {
-        // TODO Auto-generated method stub
-        return demandeService.updateDemande(demandeConge);
-
+        return IDemandeService.updateDemande(demandeConge);
     }
+    @ApiOperation(value = "supprimer une demande ")
     @DeleteMapping("/{id}")
-    public void deletedemande(@PathVariable("id")Long id) {
-        demandeService.deletedemande(id);
+    public void deletedemande(@PathVariable("id") Long id) {
+        IDemandeService.deletedemande(id);
     }
-
-
 }
 
 

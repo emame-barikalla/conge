@@ -1,11 +1,10 @@
 package com.portailRH.demandeConge.Service;
 
 import com.portailRH.demandeConge.Entity.DemandeConge;
-
 import java.util.List;
 import java.util.Optional;
 
-public interface DemandeService {
+public interface IDemandeService {
     List<DemandeConge> findAllDemandes();
     Optional<DemandeConge> findById(Long id);
     DemandeConge saveDemande(DemandeConge demandeConge);

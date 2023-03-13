@@ -2,29 +2,30 @@ package com.portailRH.User.Service;
 
 import com.portailRH.User.Entity.User;
 import com.portailRH.User.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
-public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+public class UserService implements IUserService {
+    private final UserRepository repos;
+    public UserService(UserRepository repos) {
+        this.repos = repos;
     }
-
-   /* public User findUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
-    }*/
-
+    @Override
+    public List<User> findAllusers() {
+        return repos.findAll();
+    }
+    @Override
     public User saveUser(User user) {
-        return userRepository.save(user);
+        return repos.save(user);
     }
-
-    /*public void deleteUserById(Long id) {
-        userRepository.deleteById(id);
-    }*/
+    @Override
+    public User updateUser(User user) {
+        return repos.save(user);
+    }
+    @Override
+    public void deleteUser(String login) {
+        repos.deleteById(login);
+    }
 }
+

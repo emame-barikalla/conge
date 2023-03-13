@@ -1,42 +1,28 @@
 package com.portailRH.TypeConge.Entity;
 
+import com.portailRH.demandeConge.Entity.DemandeConge;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 import javax.persistence.*;
+import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
-@Table(name = "TypeConge")
-public class TypeConge {
+@Table(name = "type_conge")
+public class TypeConge implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "type_conge_id",nullable=false)
     private Long id ;
-private String libelle;
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "demande_id")
-    private DemandeConge DemandeConge;*/
-    public TypeConge() {
-    }
+    @Column(name = "libelle")
+    private String libelle;
 
-    public Long getId() {
+  /*  @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "demande_id") // dont use it
+    private DemandeConge demandeConge;
+*/
 
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLibelle() {
-        return libelle;
-    }
-
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
-    @Override
-    public String toString() {
-        return "TypeConge{" +
-
-                ", libelle='" + libelle + '\'' +
-                '}';
-    }
 }
