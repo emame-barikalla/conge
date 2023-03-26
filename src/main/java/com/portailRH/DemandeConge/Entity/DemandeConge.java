@@ -1,19 +1,17 @@
-package com.portailRH.demandeConge.Entity;
+package com.portailRH.DemandeConge.Entity;
 
-import com.portailRH.TypeConge.Entity.TypeConge;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
 @Table(name = "demande_conge")
+
 public class DemandeConge implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,10 +29,13 @@ public class DemandeConge implements Serializable {
     private String etatDemande;
     @Column(name = "nbjours")
     private int nbjours;
-  /*  @OneToMany(mappedBy = "demande_conge", cascade = CascadeType.ALL)
-    private List<TypeConge> typeConge;
-      @JoinColumn(name = "type_conge_id")
+
+  /*  @OneToMany(mappedBy = "demande_conge", fetch = FetchType.LAZY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<TypeConge> typeconge = new ArrayList<>();
 */
+
+
 
 }
 

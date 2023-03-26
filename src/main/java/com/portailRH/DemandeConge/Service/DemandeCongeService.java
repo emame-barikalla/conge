@@ -1,7 +1,7 @@
-package com.portailRH.demandeConge.Service;
+package com.portailRH.DemandeConge.Service;
 
-import com.portailRH.demandeConge.Entity.DemandeConge;
-import com.portailRH.demandeConge.Repository.DemandeCongeRepository;
+import com.portailRH.DemandeConge.Entity.DemandeConge;
+import com.portailRH.DemandeConge.Repository.DemandeCongeRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;

@@ -1,26 +1,23 @@
-package com.portailRH.TypeConge.Controller;
+package com.portailRH.Role;
 
 import com.portailRH.TypeConge.Entity.TypeConge;
+import com.portailRH.TypeConge.Service.ITypeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
-import com.portailRH.TypeConge.Service.ITypeService;
+
 import java.util.List;
 import java.util.Optional;
 
 @Api("API pour les opérations CRUD sur les types de conge.")
 @RestController
 @RequestMapping("/api/typeconge")
-public class TypeCongeController {
+public class RoleController {
     @Autowired
     private final ITypeService itypeService;
 
-    public TypeCongeController(ITypeService itypeService) {
+    public RoleController(ITypeService itypeService) {
         this.itypeService = itypeService;
     }
     @ApiOperation(value = "Récupère la liste des types de demande ")

@@ -1,7 +1,7 @@
-package com.portailRH.demandeConge.Controller;
+package com.portailRH.DemandeConge.Controller;
 
-import com.portailRH.demandeConge.Entity.DemandeConge;
-import com.portailRH.demandeConge.Service.IDemandeService;
+import com.portailRH.DemandeConge.Entity.DemandeConge;
+import com.portailRH.DemandeConge.Service.IDemandeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/demandeconge")
 public class DemandeCongeController {
-    private IDemandeService IDemandeService;
+    private final IDemandeService IDemandeService;
     public DemandeCongeController(IDemandeService IDemandeService) {
         this.IDemandeService = IDemandeService;
     }

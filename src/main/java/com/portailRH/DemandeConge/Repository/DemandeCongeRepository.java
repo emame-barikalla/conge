@@ -1,6 +1,6 @@
-package com.portailRH.demandeConge.Repository;
+package com.portailRH.DemandeConge.Repository;
 
-import com.portailRH.demandeConge.Entity.DemandeConge;
+import com.portailRH.DemandeConge.Entity.DemandeConge;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DemandeCongeRepository extends JpaRepository<DemandeConge,Long> {

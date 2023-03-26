@@ -1,4 +1,4 @@
-package com.portailRH.demandeConge;
+package com.portailRH.DemandeConge;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
