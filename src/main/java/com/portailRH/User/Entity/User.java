@@ -1,10 +1,14 @@
 package com.portailRH.User.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.portailRH.Role.Entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,4 +33,11 @@ public class User implements Serializable {
     @Column(name = "prenom")
     private String prenom;
 
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Role> role = new ArrayList<>();
+
+
 }
+

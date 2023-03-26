@@ -1,5 +1,6 @@
 package com.portailRH.Role.Entity;
 
+import com.portailRH.User.Entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,5 +21,7 @@ public class Role implements Serializable {
     @Column(name = "libelle")
     private String libelle;
 
+      @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
 
 }
