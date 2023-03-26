@@ -3,7 +3,6 @@ package com.portailRH.TypeConge.Controller;
 import com.portailRH.TypeConge.Entity.TypeConge;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/typeconge")
 public class TypeCongeController {
-    @Autowired
+
     private final ITypeService itypeService;
 
     public TypeCongeController(ITypeService itypeService) {
