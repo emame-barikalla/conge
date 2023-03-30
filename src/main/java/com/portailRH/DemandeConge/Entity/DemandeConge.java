@@ -1,5 +1,6 @@
 package com.portailRH.DemandeConge.Entity;
 
+import com.portailRH.TypeConge.Entity.TypeConge;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
@@ -30,10 +31,8 @@ public class DemandeConge implements Serializable {
     @Column(name = "nbjours")
     private int nbjours;
 
-  /*  @OneToMany(mappedBy = "demande_conge", fetch = FetchType.LAZY)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "demandeconge", fetch = FetchType.LAZY)
     private List<TypeConge> typeconge = new ArrayList<>();
-*/
 
 
 

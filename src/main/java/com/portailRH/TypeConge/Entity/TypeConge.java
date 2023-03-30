@@ -1,5 +1,6 @@
 package com.portailRH.TypeConge.Entity;
 
+import com.portailRH.DemandeConge.Entity.DemandeConge;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class TypeConge implements Serializable {
     @Column(name = "libelle")
     private String libelle;
 
-  /* @ManyToOne(cascade = CascadeType.ALL)
-    private DemandeConge demandeConge;*/
+   @ManyToOne(cascade = CascadeType.ALL)
+    private DemandeConge demandeconge;
 
 }

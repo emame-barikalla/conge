@@ -21,7 +21,8 @@ public class Role implements Serializable {
     @Column(name = "libelle")
     private String libelle;
 
-      @ManyToOne(cascade = CascadeType.ALL)
-    private User user;
+   /*@ManyToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "login")
+    private User user;*/
 
 }

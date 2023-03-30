@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Api("API pour les opérations CRUD sur les types de conge.")
 @RestController
-@RequestMapping("/api/typeconge")
+@RequestMapping("/api/role")
 public class RoleController {
     private final IRoleService iroleService;
 
